@@ -1,0 +1,79 @@
+\documentclass[landscape, 12pt]{article}
+\usepackage[scaled]{helvet}%set font
+\usepackage[T1]{fontenc}% set font
+\usepackage[letterpaper, landscape, margin=1in]{geometry} % set paper size and margins
+\usepackage{graphicx} %used for rotating text in table
+%\usepackage{advdate} % used for dates
+%\usepackage{amsmath} % Maybe need for for loops?
+\usepackage{forloop} %for loops
+\usepackage{hyperref, wasysym} %for checkboxes
+\usepackage{anyfontsize}
+
+
+\renewcommand{\familydefault}{\sfdefault}%set font
+
+\begin{document}
+
+\newcommand{\cols}{& & & & & & & & & & & & & & & & & & &}
+\newcommand{\yesnos}{\Square YES   \Square NO}
+\thispagestyle{empty}
+\bgroup
+	\def\arraystretch{1.1} %this is actually the v-stretch bc landscape
+	%\setlength\tabcolsep{6pt} %this is actually the h-stretch bc landscape
+	\begin{table}
+	\normalsize
+	%this bit centers the table on the sheet:
+	\centering
+		\begin{tabular}{*{20}{| c }| }
+		\hline
+
+		\multicolumn{20}{|c|}{ }  \\ 
+		
+		\multicolumn{20}{|c|}{
+		{\huge
+		PIT Inspection Sheet
+		}}  \\ 
+	
+		\multicolumn{20}{|c|}{ }  \\ \hline
+	
+		\multicolumn{3}{| r |}{Make: }& \multicolumn{17}{| l |}{Hyster}  \\ \hline
+		\multicolumn{3}{| r |}{Model: }& \multicolumn{17}{| l |}{E50XL-33}  \\ \hline
+		\multicolumn{3}{| r |}{Serial Number: }& \multicolumn{17}{| l |}{C108V11035L}  \\ 
+		\hline
+	
+		Date\hspace{3em} 
+		&Hours\hspace{3em}
+		&By\hspace{4em}
+
+		&\rotatebox{90}{Battery }
+		&\rotatebox{90}{Battery Retainer Plate }
+		&\rotatebox{90}{Overhead Guard }
+		&\rotatebox{90}{Mast }
+		&\rotatebox{90}{Hydraulics }
+		&\rotatebox{90}{Chains }
+		&\rotatebox{90}{Forks }
+		&\rotatebox{90}{Wheels }
+		&\rotatebox{90}{Unusual Noise }
+		&\rotatebox{90}{Parking Brake }
+		&\rotatebox{90}{Controls }
+		&\rotatebox{90}{Driving F and R }
+		&\rotatebox{90}{Lights }
+		&\rotatebox{90}{Horn }
+		&\rotatebox{90}{Gauges }
+		&\rotatebox{90}{Oil Spots on the Floor }
+		&Needs Service? \\ \hline
+		
+		
+		\newcounter{ct} 
+		\forloop{ct}{0}{\value{ct} < 14}{\cols \yesnos \\ \hline }
+		\cols\yesnos \\ \hline
+		\end{tabular}
+	
+	\end{table}
+	\egroup
+
+\end{document}
+
+
+
+%\AdvanceDate[\value{ct}]\today

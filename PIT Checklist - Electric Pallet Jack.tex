@@ -1,0 +1,82 @@
+\documentclass[landscape, 12pt]{article}
+\usepackage[scaled]{helvet}%set font
+\usepackage[T1]{fontenc}% set font
+\usepackage[letterpaper, landscape, margin=1in]{geometry} % set paper size and margins
+\usepackage{graphicx} %used for rotating text in table
+%\usepackage{advdate} % used for dates
+%\usepackage{amsmath} % Maybe need for for loops?
+\usepackage{forloop} %for loops
+\usepackage{hyperref, wasysym} %for checkboxes
+\usepackage{anyfontsize}
+
+
+\renewcommand{\familydefault}{\sfdefault}%set font
+
+\begin{document}
+ 
+		
+\newcommand{\cols}{& & & & & & & & & & & & & & & & & & }
+%\newcommand{\cols}{\newcount{cs}\forloop{cs}{0}{\value{cs} < \numexpr(\columncount - 1)}{ & } } this doesn't work yet
+\newcommand{\yesnos}{\Square YES   \Square NO}
+\newcommand\columncount{19}
+\thispagestyle{empty}
+\bgroup
+	\def\arraystretch{1.1} %this is actually the v-stretch bc landscape
+	%\setlength\tabcolsep{6pt} %this is actually the h-stretch bc landscape
+	\begin{table}
+	\normalsize
+	%this bit centers the table on the sheet:
+	\centering
+		\begin{tabular}{*{\columncount}{| c }| }
+		\hline
+
+		\multicolumn{\columncount}{|c|}{ }  \\ 
+		
+		\multicolumn{\columncount}{|c|}{
+		{\huge
+		PIT Inspection Sheet
+		}}  \\ 
+	
+		\multicolumn{\columncount}{|c|}{ }  \\ \hline
+	
+		\multicolumn{3}{| r |}{Make: }& \multicolumn{\numexpr(\columncount - 3)}{| l |}{EP}  \\ \hline
+		\multicolumn{3}{| r |}{Model: }& \multicolumn{\numexpr(\columncount - 3)}{| l |}{EPT\columncount-45WA}  \\ \hline
+		\multicolumn{3}{| r |}{Serial Number: }& \multicolumn{\numexpr(\columncount - 3)}{| l |}{E1003058}  \\ 
+		\hline
+	
+		Date\hspace{3em} 
+		&Hours\hspace{3em}
+		&By\hspace{4em}
+
+		&\rotatebox{90}{Battery }
+		&\rotatebox{90}{Key Switch \& Key }
+		&\rotatebox{90}{Emergency Reverse Button }
+		&\rotatebox{90}{Lift/Lower Buttons }
+		&\rotatebox{90}{Hydraulics }
+		&\rotatebox{90}{Hour Meter }
+		&\rotatebox{90}{Forks }
+		&\rotatebox{90}{Wheels }
+		&\rotatebox{90}{Unusual Noise }
+		&\rotatebox{90}{Battery Charger }
+		&\rotatebox{90}{Controls }
+		&\rotatebox{90}{Driving F and R }
+%		&\rotatebox{90}{Lights }
+		&\rotatebox{90}{Horn }
+		&\rotatebox{90}{Gauges }
+		&\rotatebox{90}{Oil Spots on the Floor }
+		&Needs Service? \\ \hline
+		
+		%for loop to make the rest of the check boxes
+		\newcounter{ct} 
+		\forloop{ct}{0}{\value{ct} < 14}{\cols \yesnos \\ \hline }
+		\cols\yesnos \\ \hline
+		\end{tabular}
+	
+	\end{table}
+	\egroup
+
+\end{document}
+
+
+
+%\AdvanceDate[\value{ct}]\today
